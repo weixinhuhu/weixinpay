@@ -1,0 +1,4 @@
+[INFO ] 2018-12-06 09:24:43,328 org.course.service.CoreService 查询用户号成功，用户号 ：  10220003
+[INFO ] 2018-12-06 09:24:43,380        org.sqlserver.util.Test -----账单未生成，请稍后再试ok
+[INFO ] 2018-12-06 09:25:17,661    org.weixin.main.MenuManager 菜单创建成功！
+[INFO ] 2018-12-06 09:25:32,934    org.weixin.main.MenuManager 菜单创建成功！
