@@ -56,7 +56,7 @@ public class CoreService {
 			textMessage.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_TEXT);
 
 			// 欢迎提示
-			textMessage.setContent("欢迎关注融通高科水电平台公众号" + "\n"
+			textMessage.setContent("欢迎关注水电平台公众号" + "\n"
 					+ "为方便您查询缴费，请先做水表档案与微信号的绑定操作！" + "\n"
 					+ "具体操作流程请参照用水服务中的账户绑定菜单");
 			respXml = MessageUtil.messageToXml(textMessage);
@@ -89,18 +89,19 @@ public class CoreService {
 						String totlemoney = ms.GetTotleMoney(fromUserName);
 						String url = "";
 						if (SendMsg.equals("账单未生成，请稍后再试")) {
-							url = "";
+							url = "";					
 						} else {
-							url = "http://weixinsdpt.applinzi.com/jsapi_1.jsp?openid="
-									+ fromUserName + "&totlemoney" + totlemoney;
+							url = "http://weixinsdpt.applinzi.com/jsapi.jsp?openid="
+									+ fromUserName + "&totlemoney=" + totlemoney;
 							SendMsg = SendMsg + "\n" + "\n" + "去缴费";
 						}
 						newsMessage(SendMsg, "账单详情", url);
 						break;
 					case "31":// 账户绑定
-						newsMessage("操作提示" + "\n" + "如需绑定用水档案请输入bd#手机号#用户编号"
-								+ "\n" + "如需解绑用水档案请输入jb#手机号#用户编号", "账号绑定操作提示",
-								"");
+						SendMsg="账户绑定";							 
+						url = "http://weixinsdpt.applinzi.com/UserReg.jsp?openid="
+								+ fromUserName;	
+						newsMessage("点击进入账户绑定页面", "账户绑定", url);
 						break;
 					case "32":// 客户档案查询
 						SendMsg = ms.getUseInfo(fromUserName);

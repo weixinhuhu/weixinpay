@@ -4,7 +4,6 @@ import org.course.menu.Button;
 import org.course.menu.ClickButton;
 import org.course.menu.ComplexButton;
 import org.course.menu.Menu;
-import org.course.menu.ViewButton;
 import org.course.pojo.Token;
 import org.course.util.CommonUtil;
 import org.course.util.MenuUtil;
@@ -70,7 +69,7 @@ public class MenuManager {
 		btn31.setName("账户绑定");
 		btn31.setType("click");
 		btn31.setKey("31");
-
+	
 		ClickButton btn32 = new ClickButton();
 		btn32.setName("客户档案查询");
 		btn32.setType("click");
@@ -112,10 +111,15 @@ public class MenuManager {
 		// // 第三方用户唯一凭证密钥
 		// String appSecret = "beddb90d51a6aa8627834af252322b25";
 
-		// 第三方用户唯一凭证 融通高科公司账户
-		String appId = "wx31ac720aa5838480";
+//		// 第三方用户唯一凭证 融通高科公司账户
+//		String appId = "wx31ac720aa5838480";
+//		// 第三方用户唯一凭证密钥
+//		String appSecret = "6820b4f14d6e3f8afafe094e99533a24";
+		
+		// 第三方用户唯一凭证 逸海卓诚公司账户
+		String appId = "wx47c48543078afd64";
 		// 第三方用户唯一凭证密钥
-		String appSecret = "6820b4f14d6e3f8afafe094e99533a24";
+		String appSecret = "897bc16c385540e62a4d92553c5a3cae";
 
 		// 调用接口获取凭证
 		Token token = CommonUtil.getToken(appId, appSecret);

@@ -20,7 +20,7 @@ public class ManageService {
 		StringBuffer msg = new StringBuffer();
 		try {
 			while (rs.next()) {
-				msg.append("账户余额：" + rs.getString(3) + "元\n用水户号："
+				msg.append("账户余额：" + moneyFormat(rs.getString(3)) + "元\n用水户号："
 						+ rs.getString(2) + "\n用水户名：" + rs.getString(1)
 						+ " \n用户地址：" + rs.getString(4) + "\n更新日期："
 						+ rs.getString(5)
@@ -51,13 +51,11 @@ public class ManageService {
 		SqlUtil sqlutil = new SqlUtil();
 		String remsg = sqlutil.Pro_WechatRelation(type, CustNo, MobileNo,
 				WeChatNo);
-		StringBuffer msg = new StringBuffer();
 		if (remsg.equals("0")) {
-			msg.append("恭喜您，操作成功！");
+			return "0";
 		} else {
-			msg.append("操作失败，请确认输入的信息是否正确！");
+			return remsg;
 		}
-		return msg.toString();
 	}
 
 	/**
@@ -109,7 +107,7 @@ public class ManageService {
 					msg.append("客户编号：" + rs.getString(1) + "\n" + "客户姓名："
 							+ rs.getString(2) + "\n" + "用水地址："
 							+ rs.getString(3) + "\n" + "账务余额："
-							+ rs.getString(4) + "\n" + "截止日期："
+							+ moneyFormat(rs.getString(4)) + "\n" + "截止日期："
 							+ rs.getString(5));
 				}
 			} catch (Exception e) {
@@ -160,7 +158,7 @@ public class ManageService {
 							+ rs.getString(3) + "\n" + "用户姓名："
 							+ rs.getString(4) + "\n" + "用户地址："
 							+ rs.getString(5) + "\n" + "预存金额："
-							+ rs.getString(6) + "\n" + "充值时间："
+							+ moneyFormat(rs.getString(6)) + "\n" + "充值时间："
 							+ rs.getString(7) + "\n");
 				}
 			} catch (Exception e) {
@@ -189,8 +187,8 @@ public class ManageService {
 				while (rs.next()) {
 					msg.append("费用编号：" + rs.getString(1) + "\n" + "费用日期："
 							+ rs.getString(2) + "\n" + "计量水量："
-							+ rs.getString(3) + "\n" + "欠费：" + rs.getString(4)
-							+ "\n" + "违约金：" + rs.getString(5));
+							+ rs.getString(3) + "\n" + "欠费：" + moneyFormat(rs.getString(4))
+							+ "\n" + "违约金：" +moneyFormat( rs.getString(5)));
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -253,7 +251,7 @@ public class ManageService {
 		ResultSet rs = null;
 		rs = sqlutil.Por_WechatQryoffFlow(WeChatNo);
 		StringBuffer msg = new StringBuffer();
-		if (rs == null) {
+		if (rs == null|| rs.getRow() == 0) {
 			msg.append("抱歉！未查询到近六个月后付费缴费记录");
 			return msg.toString();
 		} else {
@@ -262,7 +260,7 @@ public class ManageService {
 					msg.append("费用编号：" + rs.getString(1) + "\n" + "费用日期："
 							+ rs.getString(2) + "\n" + "流水号：" + rs.getString(3)
 							+ "\n" + "账务日期：" + rs.getString(4) + "\n" + "费用金额："
-							+ rs.getString(5) + "\n" + "违约金：" + rs.getString(6)
+							+moneyFormat( rs.getString(5)) + "\n" + "违约金：" + moneyFormat(rs.getString(6))
 							+ "\n" + "缴费时间：" + rs.getString(7));
 				}
 			} catch (Exception e) {
@@ -292,4 +290,32 @@ public class ManageService {
 		}
 		return msg.toString();
 	}
+	
+	  /**  
+     * 对金额的格式调整到分  
+     * @param money  
+     * @return  
+     */    
+    public static String moneyFormat(String money){//23->23.00    
+        StringBuffer sb=new StringBuffer();    
+        if(money==null){    
+            return "0.00";    
+        }    
+        int index=money.indexOf(".");    
+        if(index==-1){    
+            return money+".00";    
+        }else{    
+            String s0=money.substring(0,index);//整数部分    
+            String s1=money.substring(index+1);//小数部分    
+            if(s1.length()==1){//小数点后一位    
+                s1=s1+"0";    
+            }else if(s1.length()>2){//如果超过3位小数，截取2位就可以了    
+                s1=s1.substring(0,2);    
+            }    
+            sb.append(s0);    
+            sb.append(".");    
+            sb.append(s1);    
+        }    
+        return sb.toString()+"元";    
+    } 
 }
