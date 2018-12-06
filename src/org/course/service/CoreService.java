@@ -142,6 +142,7 @@ public class CoreService {
 	 * newsMessage封装
 	 * 
 	 * @param sendMsg
+	 *
 	 */
 	private static void newsMessage(String sendMsg, String StrTitle, String url) {
 		Article article = new Article();
