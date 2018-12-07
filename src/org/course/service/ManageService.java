@@ -9,15 +9,15 @@ public class ManageService {
 	/**
 	 * 通过用水户号 存储过程方式获取结果集
 	 * 
-	 * @param usernum
-	 * @return
-	 * @throws SQLException
+	 * @param usernum 用户号
+	 * @return  用户信息
+	 * @throws SQLException sql异常
 	 */
 	String getProResult(String usernum) throws SQLException {
 		SqlUtil sqlutil = new SqlUtil();
-		ResultSet rs = null;
+		ResultSet rs ;
 		rs = sqlutil.getResult(usernum);
-		StringBuffer msg = new StringBuffer();
+		StringBuilder msg = new StringBuilder();
 		try {
 			while (rs.next()) {
 				msg.append("账户余额：" + moneyFormat(rs.getString(3)) + "元\n用水户号："
@@ -43,8 +43,8 @@ public class ManageService {
 	 *            手机号
 	 * @param WeChatNo
 	 *            微信号
-	 * @return
-	 * @throws SQLException
+	 * @return 操作结果
+	 * @throws SQLException sql 异常
 	 */
 	public String WechatRelation(int type, int CustNo, String MobileNo,
 			String WeChatNo) throws SQLException {
@@ -61,15 +61,15 @@ public class ManageService {
 	/**
 	 * 2客户查询
 	 * 
-	 * @param WeChatNo
-	 * @return
-	 * @throws SQLException
+	 * @param WeChatNo 微信号
+	 * @return 客户记录
+	 * @throws SQLException sql 异常
 	 */
 	public String getUseInfo(String WeChatNo) throws SQLException {
 		SqlUtil sqlutil = new SqlUtil();
-		ResultSet rs = null;
+		ResultSet rs;
 		rs = sqlutil.Pro_getUserInfoResult(WeChatNo);
-		StringBuffer msg = new StringBuffer();
+		StringBuilder msg = new StringBuilder();
 		if (rs == null) {
 			msg.append("此微信号码未绑定用户用水档案");
 		} else {
@@ -90,15 +90,15 @@ public class ManageService {
 	/**
 	 * 3 水费账户余额查询
 	 * 
-	 * @param WeChatNo
-	 * @return
-	 * @throws SQLException
+	 * @param WeChatNo 微信号
+	 * @return  账户余额
+	 * @throws SQLException sql 异常
 	 */
 	public String QureyUserMoney(String WeChatNo) throws SQLException {
 		SqlUtil sqlutil = new SqlUtil();
-		ResultSet rs = null;
+		ResultSet rs ;
 		rs = sqlutil.Por_QueryMoney(WeChatNo);
-		StringBuffer msg = new StringBuffer();
+		StringBuilder msg = new StringBuilder();
 		if (rs == null) {
 			msg.append("抱歉！未查询到余额信息");
 		} else {
@@ -124,14 +124,14 @@ public class ManageService {
 	 *            微信号
 	 * @param money
 	 *            缴费金额
-	 * @return
-	 * @throws SQLException
+	 * @return  缴费结果
+	 * @throws SQLException sql异常
 	 */
 	public String WechatDeposit(String WeChatNo, Double money, String orderId)
 			throws SQLException {
 		SqlUtil sqlutil = new SqlUtil();
 		String remsg = sqlutil.Pro_WechatDeposit(WeChatNo, money, orderId);
-		StringBuffer msg = new StringBuffer();
+		StringBuilder msg = new StringBuilder();
 		msg.append(remsg);
 		return msg.toString();
 	}
@@ -139,15 +139,15 @@ public class ManageService {
 	/**
 	 * 5 预付费缴费记录查询
 	 * 
-	 * @param WeChatNo
-	 * @return
-	 * @throws SQLException
+	 * @param  WeChatNo 微信号
+	 * @return 缴费记录
+	 * @throws SQLException sql异常
 	 */
 	public String WechatQryDepositFlow(String WeChatNo) throws SQLException {
 		SqlUtil sqlutil = new SqlUtil();
-		ResultSet rs = null;
+		ResultSet rs ;
 		rs = sqlutil.Por_WechatQryDepositFlow(WeChatNo);
-		StringBuffer msg = new StringBuffer();
+		StringBuilder msg = new StringBuilder();
 		if (rs == null) {
 			msg.append("抱歉！未查询到近六个月内预付费缴费记录");
 		} else {
@@ -171,15 +171,15 @@ public class ManageService {
 	/**
 	 * 6 后付费欠费查询
 	 * 
-	 * @param WeChatNo
-	 * @return
-	 * @throws SQLException
+	 * @param WeChatNo "微信号"
+	 * @return 欠费记录
+	 * @throws SQLException sql 异常
 	 */
 	public String WechatQryBill(String WeChatNo) throws SQLException {
 		SqlUtil sqlutil = new SqlUtil();
-		ResultSet rs = null;
+		ResultSet rs ;
 		rs = sqlutil.Por_WechatQryBill(WeChatNo);
-		StringBuffer msg = new StringBuffer();
+		StringBuilder msg = new StringBuilder();
 		if (rs == null || rs.getRow() == 0) {
 			msg.append("账单未生成，请稍后再试");
 		} else {
@@ -200,7 +200,7 @@ public class ManageService {
 	public String GetTotleMoney(String WeChatNo) throws SQLException {
 		float money = 0;
 		SqlUtil sqlutil = new SqlUtil();
-		ResultSet rs = null;
+		ResultSet rs ;
 		rs = sqlutil.Por_WechatQryBill(WeChatNo);
 		if (rs == null) {
 			money = 0.00f;
@@ -226,15 +226,15 @@ public class ManageService {
 	 *            缴费金额
 	 * @param count
 	 *            缴费笔数，0：全部，其它为多笔欠费的前iCount笔
-	 * @return
-	 * @throws SQLException
+	 * @return  缴费结果
+	 * @throws SQLException sql异常
 	 */
 	public String WechatWriteoff(String WeChatNo, double money, int count,
 			String orderNo) throws SQLException {
 		SqlUtil sqlutil = new SqlUtil();
 		String remsg = sqlutil.Pro_WechatWriteoff(WeChatNo, money, count,
 				orderNo);
-		StringBuffer msg = new StringBuffer();
+		StringBuilder msg = new StringBuilder();
 		msg.append(remsg);
 		return msg.toString();
 	}
@@ -242,15 +242,15 @@ public class ManageService {
 	/**
 	 * 8 后付费交费记录查询
 	 * 
-	 * @param WeChatNo
-	 * @return
-	 * @throws SQLException
+	 * @param WeChatNo 微信号
+	 * @return 交费记录
+	 * @throws SQLException sql异常
 	 */
 	public String WechatQryWriteoffFlow(String WeChatNo) throws SQLException {
 		SqlUtil sqlutil = new SqlUtil();
-		ResultSet rs = null;
+		ResultSet rs ;
 		rs = sqlutil.Por_WechatQryoffFlow(WeChatNo);
-		StringBuffer msg = new StringBuffer();
+		StringBuilder msg = new StringBuilder();
 		if (rs == null|| rs.getRow() == 0) {
 			msg.append("抱歉！未查询到近六个月后付费缴费记录");
 			return msg.toString();
@@ -273,13 +273,13 @@ public class ManageService {
 	/**
 	 * 9 价格查询
 	 * 
-	 * @return
-	 * @throws SQLException
+	 * @return 价格信息
+	 * @throws SQLException sql异常
 	 */
 	public String WechatQryPrice() throws SQLException {
 		SqlUtil sqlutil = new SqlUtil();
-		StringBuffer msg = new StringBuffer();
-		ResultSet rs = null;
+		StringBuilder msg = new StringBuilder();
+		ResultSet rs ;
 		rs = sqlutil.pro_WechatQryPrice();
 		try {
 			while (rs.next()) {
@@ -293,11 +293,11 @@ public class ManageService {
 	
 	  /**  
      * 对金额的格式调整到分  
-     * @param money  
-     * @return  
+     * @param money  金额
+     * @return  格式化金额
      */    
     public static String moneyFormat(String money){//23->23.00    
-        StringBuffer sb=new StringBuffer();    
+		StringBuilder sb=new StringBuilder();
         if(money==null){    
             return "0.00";    
         }    

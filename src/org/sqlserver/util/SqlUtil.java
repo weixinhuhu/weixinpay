@@ -249,7 +249,7 @@ public class SqlUtil {
 	 * @param WeChatNo
 	 *            微信号
 	 * @return
-	 * @throws SQLException
+	 * @throws SQLException sql异常
 	 */
 	public String Pro_WechatRelation(int type, int CustNo, String MobileNo,
 			String WeChatNo) throws SQLException {

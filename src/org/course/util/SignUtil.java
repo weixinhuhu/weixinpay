@@ -6,9 +6,7 @@ import java.util.Arrays;
 
 /**
  * 请求校验工具类
- * 
- *  
- * @date 2013-09-01
+ *
  */
 public class SignUtil {
 	// 与开发模式接口配置信息中的Token保持一致

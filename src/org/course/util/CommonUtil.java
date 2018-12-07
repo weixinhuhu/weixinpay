@@ -19,9 +19,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 通用工具类
- * 
- *  
- * @date 2013-10-17
+ *
  */
 public class CommonUtil {
 	private static Logger log = LoggerFactory.getLogger(CommonUtil.class);
@@ -69,7 +67,7 @@ public class CommonUtil {
 			InputStream inputStream = conn.getInputStream();
 			InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "utf-8");
 			BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-			String str = null;
+			String str ;
 			StringBuffer buffer = new StringBuffer();
 			while ((str = bufferedReader.readLine()) != null) {
 				buffer.append(str);
@@ -79,7 +77,6 @@ public class CommonUtil {
 			bufferedReader.close();
 			inputStreamReader.close();
 			inputStream.close();
-			inputStream = null;
 			conn.disconnect();
 			jsonObject = JSONObject.fromObject(buffer.toString());
 		} catch (ConnectException ce) {
@@ -95,7 +92,7 @@ public class CommonUtil {
 	 * 
 	 * @param appid 凭证
 	 * @param appsecret 密钥
-	 * @return
+	 * @return  返回token
 	 */
 	public static Token getToken(String appid, String appsecret) {
 		Token token = null;

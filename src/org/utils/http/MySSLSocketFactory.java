@@ -1,8 +1,5 @@
 package org.utils.http;
 
-
-
-
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 

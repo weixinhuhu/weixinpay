@@ -126,7 +126,7 @@ public class GetWxOrderno
 			m.put(k, v);
 		}
 		
-		//关闭�?
+		//关闭
 		in.close();
 		
 		return m;

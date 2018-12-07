@@ -56,7 +56,7 @@
 	}
 
 	function checkMeteinfo(s) {
-		if (s == "" || s.length != 10) {
+		if (s == "") {
 			return false;
 		} else
 			return true;

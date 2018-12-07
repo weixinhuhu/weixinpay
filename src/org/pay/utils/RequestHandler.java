@@ -1,8 +1,5 @@
 package org.pay.utils;
 
-
-
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Iterator;
@@ -12,9 +9,6 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-
 
 /*
  '微信支付服务器签名支付请求请求类

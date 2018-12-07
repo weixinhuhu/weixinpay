@@ -29,11 +29,11 @@ public class Test {
 		
 		//	SendMsg=ms.WechatRelation(	1, 10220001, "13833333333", wechatNo);
 		// SendMsg=ms.WechatDeposit(wechatNo, 10010);
-		// SendMsg=ms.WechatQryPrice();	
+		 SendMsg=ms.WechatQryPrice();
 		//SendMsg=ms.WechatWriteoff(wechatNo,4000,0,"1000000000");		
 		//SendMsg=ms.WechatQryWriteoffFlow(wechatNo);
-	//	SendMsg=ms.WechatDeposit(wechatNo, 0.01,"1223123311");		
-		SendMsg=ms.WechatQryBill(wechatNo);
+	//	SendMsg=ms.WechatDeposit(wechatNo, 0.01,"1223123311");
+	//	SendMsg=ms.WechatRelation(0,18070802,"13812345678",wechatNo);
 	//	SendMsg=ms.WechatQryDepositFlow(wechatNo);
 		//SendMsg=ms.QureyUserMoney(wechatNo);		
 	//	SendMsg=ms.GetTotleMoney(wechatNo);	

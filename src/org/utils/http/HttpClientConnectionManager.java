@@ -1,8 +1,5 @@
 package org.utils.http;
 
-
-
-
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -11,11 +8,8 @@ import org.apache.http.conn.scheme.Scheme;
 import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-
 public class HttpClientConnectionManager {
-	
-	
-	
+
 	/**
 	 * 获取SSL验证的HttpClient
 	 * @param httpClient
@@ -36,7 +30,7 @@ public class HttpClientConnectionManager {
 	 * @return
 	 */
 	public static HttpPost getPostMethod(String url) {
-		HttpPost pmethod = new HttpPost(url); // 设置响应头信�?
+		HttpPost pmethod = new HttpPost(url); // 设置响应头信�?
 		pmethod.addHeader("Connection", "keep-alive");
 		pmethod.addHeader("Accept", "*/*");
 		pmethod.addHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
@@ -54,7 +48,7 @@ public class HttpClientConnectionManager {
 	 */
 	public static HttpGet getGetMethod(String url) {
 		HttpGet pmethod = new HttpGet(url);
-		// 设置响应头信�?
+		// 设置响应头信
 		pmethod.addHeader("Connection", "keep-alive");
 		pmethod.addHeader("Cache-Control", "max-age=0");
 		pmethod.addHeader("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0) ");

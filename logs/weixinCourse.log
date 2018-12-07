@@ -2,3 +2,42 @@
 [INFO ] 2018-12-06 09:24:43,380        org.sqlserver.util.Test -----账单未生成，请稍后再试ok
 [INFO ] 2018-12-06 09:25:17,661    org.weixin.main.MenuManager 菜单创建成功！
 [INFO ] 2018-12-06 09:25:32,934    org.weixin.main.MenuManager 菜单创建成功！
+[INFO ] 2018-12-06 10:13:20,498 org.course.service.CoreService 查询用户号成功，用户号 ：  10220003
+[INFO ] 2018-12-06 10:13:20,552        org.sqlserver.util.Test -----账单未生成，请稍后再试ok
+[INFO ] 2018-12-06 10:24:23,042 org.course.service.CoreService 查询用户号成功，用户号 ：  10220003
+[INFO ] 2018-12-06 10:24:23,100        org.sqlserver.util.Test -----账单未生成，请稍后再试ok
+[INFO ] 2018-12-06 10:33:07,258 org.course.service.CoreService 查询用户号成功，用户号 ：  10220003
+[INFO ] 2018-12-06 10:33:07,280        org.sqlserver.util.Test -----账单未生成，请稍后再试ok
+[INFO ] 2018-12-06 10:33:13,476 org.course.service.CoreService 查询用户号成功，用户号 ：  10220003
+[INFO ] 2018-12-06 10:33:13,497        org.sqlserver.util.Test -----账单未生成，请稍后再试ok
+[INFO ] 2018-12-06 16:14:12,312        org.sqlserver.util.Test -----微信号已绑定其他客户，不能再次绑定ok
+[INFO ] 2018-12-06 16:14:35,118        org.sqlserver.util.Test -----@iCustNo：18070802；@sMobileNo：13812345678；@sWeChatNo：o_-0ls1cQ41FoAMz的绑定不存在！ok
+[INFO ] 2018-12-06 16:14:50,642        org.sqlserver.util.Test -----微信号已绑定其他客户，不能再次绑定ok
+[INFO ] 2018-12-06 16:16:45,749        org.sqlserver.util.Test -----0ok
+[INFO ] 2018-12-06 16:28:32,339        org.sqlserver.util.Test -----已绑定到其它微信号，不能再次绑定ok
+[INFO ] 2018-12-06 16:28:42,792        org.sqlserver.util.Test -----0ok
+[INFO ] 2018-12-06 16:28:50,321        org.sqlserver.util.Test -----@iCustNo：18070802；@sMobileNo：13812345678；@sWeChatNo：o_-0ls1cQ41FoAMz的绑定不存在！ok
+[INFO ] 2018-12-06 16:29:03,288        org.sqlserver.util.Test -----@iCustNo：18070802；@sMobileNo：13812345678；@sWeChatNo：o_-0ls1cQ41FoAMz的绑定不存在！ok
+[INFO ] 2018-12-06 16:29:11,277        org.sqlserver.util.Test -----0ok
+[INFO ] 2018-12-06 16:51:36,788        org.sqlserver.util.Test -----
+北京市居民用水阶梯水价标准
+第一档水量：  0-180（含）部分，5.00/吨，其中自来水费2.07，水资源费1.57，污水处理费1.36；
+第二档水量：181-260（含）部分，7.00/吨，其中自来水费4.07，水资源费1.57，污水处理费1.36；
+第三档水量：181-260（含）部分，9.00/吨，其中自来水费6.07，水资源费1.57，污水处理费1.36；ok
+[ERROR] 2018-12-06 17:01:41,797     org.course.util.CommonUtil 获取token失败 errcode:40164 errmsg:invalid ip 111.198.24.26, not in whitelist hint: [sHjQwa09013055]
+[ERROR] 2018-12-06 17:02:45,234     org.course.util.CommonUtil 获取token失败 errcode:40164 errmsg:invalid ip 111.198.24.26, not in whitelist hint: [2phRta09652974]
+[INFO ] 2018-12-06 17:03:48,342    org.weixin.main.MenuManager 菜单创建成功！
+[ERROR] 2018-12-06 17:04:20,621     org.course.util.CommonUtil 获取token失败 errcode:40164 errmsg:invalid ip 111.198.24.26, not in whitelist hint: [oN6tOA00601466]
+[INFO ] 2018-12-06 17:05:22,242    org.weixin.main.MenuManager 菜单创建成功！
+[INFO ] 2018-12-06 17:12:08,932    org.weixin.main.MenuManager 菜单创建成功！
+[INFO ] 2018-12-06 17:12:25,316        org.sqlserver.util.Test -----
+北京市居民用水阶梯水价标准
+第一档水量：  0-180（含）部分，5.00/吨，其中自来水费2.07，水资源费1.57，污水处理费1.36；
+第二档水量：181-260（含）部分，7.00/吨，其中自来水费4.07，水资源费1.57，污水处理费1.36；
+第三档水量：181-260（含）部分，9.00/吨，其中自来水费6.07，水资源费1.57，污水处理费1.36；ok
+[INFO ] 2018-12-06 17:14:24,205    org.weixin.main.MenuManager 菜单创建成功！
+[INFO ] 2018-12-06 17:23:20,679        org.sqlserver.util.Test -----
+北京市居民用水阶梯水价标准
+第一档水量：  0-180（含）部分，5.00/吨，其中自来水费2.07，水资源费1.57，污水处理费1.36；
+第二档水量：181-260（含）部分，7.00/吨，其中自来水费4.07，水资源费1.57，污水处理费1.36；
+第三档水量：181-260（含）部分，9.00/吨，其中自来水费6.07，水资源费1.57，污水处理费1.36；ok

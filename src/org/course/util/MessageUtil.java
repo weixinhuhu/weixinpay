@@ -26,8 +26,7 @@ import com.thoughtworks.xstream.io.xml.XppDriver;
 /**
  * 消息处理工具类
  * 
- *  
- * @date 2013-09-15
+ *
  */
 public class MessageUtil {
 	// 请求消息类型：文本
