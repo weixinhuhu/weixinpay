@@ -13,30 +13,30 @@ import org.pay.utils.TenpayUtil;
  * 
  */
 public class WxFinaPackage {
-	// Î¢ĞÅÖ§¸¶ÉÌ»§¿ªÍ¨ºó Î¢ĞÅ»áÌá¹©appidºÍappsecretºÍÉÌ»§ºÅpartner
+	// å¾®ä¿¡æ”¯ä»˜å•†æˆ·å¼€é€šå å¾®ä¿¡ä¼šæä¾›appidå’Œappsecretå’Œå•†æˆ·å·partner
 	private static String appid = "wx31ac720aa5838480";
 	private static String appsecret = "6820b4f14d6e3f8afafe094e99533a24";
 	private static String partner = "1480061982";
-	// Õâ¸ö²ÎÊıpartnerkeyÊÇÔÚÉÌ»§ºóÌ¨ÅäÖÃµÄÒ»¸ö32Î»µÄkey,Î¢ĞÅÉÌ»§Æ½Ì¨-ÕË»§ÉèÖÃ-°²È«ÉèÖÃ-api°²È«
+	// è¿™ä¸ªå‚æ•°partnerkeyæ˜¯åœ¨å•†æˆ·åå°é…ç½®çš„ä¸€ä¸ª32ä½çš„key,å¾®ä¿¡å•†æˆ·å¹³å°-è´¦æˆ·è®¾ç½®-å®‰å…¨è®¾ç½®-apiå®‰å…¨
 	private static String partnerkey = "WXabik5OnJ8rRjvijSl1PQfkLXPPTG6E";
-	// openId ÊÇÎ¢ĞÅÓÃ»§Õë¶Ô¹«ÖÚºÅµÄ±êÊ¶£¬ÊÚÈ¨µÄ²¿·ÖÕâÀï²»½âÊÍ
+	// openId æ˜¯å¾®ä¿¡ç”¨æˆ·é’ˆå¯¹å…¬ä¼—å·çš„æ ‡è¯†ï¼Œæˆæƒçš„éƒ¨åˆ†è¿™é‡Œä¸è§£é‡Š
 	private static String openId = "o_-0ls1cQ41FoAMz_9xH-ZgV-LMI";
-	// Î¢ĞÅÖ§¸¶³É¹¦ºóÍ¨ÖªµØÖ· ±ØĞëÒªÇó80¶Ë¿Ú²¢ÇÒµØÖ·²»ÄÜ´ø²ÎÊı
+	// å¾®ä¿¡æ”¯ä»˜æˆåŠŸåé€šçŸ¥åœ°å€ å¿…é¡»è¦æ±‚80ç«¯å£å¹¶ä¸”åœ°å€ä¸èƒ½å¸¦å‚æ•°
 	private static String notifyurl = "http://weixinsdpt.applinzi.com/"; // Key
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		//²âÊÔ
+		//æµ‹è¯•
 		System.out.println(getFinaPackage(openId,"0.01"));
 	}
 
 	public static  String getFinaPackage(String wechatNo,String Money) {
-		// Î¢ĞÅÖ§¸¶jsApi
+		// å¾®ä¿¡æ”¯ä»˜jsApi
 		WxPayDto tpWxPay = new WxPayDto();
 		tpWxPay.setOpenId(wechatNo);
-		tpWxPay.setBody("½ÉÄÉË®·Ñ");
+		tpWxPay.setBody("ç¼´çº³æ°´è´¹");
 		tpWxPay.setOrderId(getNonceStr());
 		tpWxPay.setSpbillCreateIp("127.0.0.1");
 		tpWxPay.setTotalFee(Money);
@@ -44,33 +44,33 @@ public class WxFinaPackage {
 	}
 
 	/**
-	 * »ñÈ¡ÇëÇóÔ¤Ö§¸¶id±¨ÎÄ
+	 * è·å–è¯·æ±‚é¢„æ”¯ä»˜idæŠ¥æ–‡
 	 * 
 	 * @return
 	 */
 	@SuppressWarnings("static-access")
 	public static String getPackage(WxPayDto tpWxPayDto) {
 		String openId = tpWxPayDto.getOpenId();
-		// 1 ²ÎÊı
-		// ¶©µ¥ºÅ
+		// 1 å‚æ•°
+		// è®¢å•å·
 		String orderId = tpWxPayDto.getOrderId();
-		// ¸½¼ÓÊı¾İ Ô­Ñù·µ»Ø
+		// é™„åŠ æ•°æ® åŸæ ·è¿”å›
 		String attach = "";
-		// ×Ü½ğ¶îÒÔ·ÖÎªµ¥Î»£¬²»´øĞ¡Êıµã
+		// æ€»é‡‘é¢ä»¥åˆ†ä¸ºå•ä½ï¼Œä¸å¸¦å°æ•°ç‚¹
 		String totalFee = getMoney(tpWxPayDto.getTotalFee());
-		// ¶©µ¥Éú³ÉµÄ»úÆ÷ IP
+		// è®¢å•ç”Ÿæˆçš„æœºå™¨ IP
 		String spbill_create_ip = tpWxPayDto.getSpbillCreateIp();
-		// ÕâÀïnotify_urlÊÇ Ö§¸¶Íê³ÉºóÎ¢ĞÅ·¢¸ø¸ÃÁ´½ÓĞÅÏ¢£¬¿ÉÒÔÅĞ¶Ï»áÔ±ÊÇ·ñÖ§¸¶³É¹¦£¬¸Ä±ä¶©µ¥×´Ì¬µÈ¡£
+		// è¿™é‡Œnotify_urlæ˜¯ æ”¯ä»˜å®Œæˆåå¾®ä¿¡å‘ç»™è¯¥é“¾æ¥ä¿¡æ¯ï¼Œå¯ä»¥åˆ¤æ–­ä¼šå‘˜æ˜¯å¦æ”¯ä»˜æˆåŠŸï¼Œæ”¹å˜è®¢å•çŠ¶æ€ç­‰ã€‚
 		String notify_url = notifyurl;
 		String trade_type = "JSAPI";
-		// ---±ØĞë²ÎÊı
-		// ÉÌ»§ºÅ
+		// ---å¿…é¡»å‚æ•°
+		// å•†æˆ·å·
 		String mch_id = partner;
-		// Ëæ»ú×Ö·û´®
+		// éšæœºå­—ç¬¦ä¸²
 		String nonce_str = getNonceStr();
-		// ÉÌÆ·ÃèÊö¸ù¾İÇé¿öĞŞ¸Ä
+		// å•†å“æè¿°æ ¹æ®æƒ…å†µä¿®æ”¹
 		String body = tpWxPayDto.getBody();
-		// ÉÌ»§¶©µ¥ºÅ
+		// å•†æˆ·è®¢å•å·
 		String out_trade_no = orderId;
 		SortedMap<String, String> packageParams = new TreeMap<String, String>();
 		packageParams.put("appid", appid);
@@ -79,7 +79,7 @@ public class WxFinaPackage {
 		packageParams.put("body", body);
 		packageParams.put("attach", attach);
 		packageParams.put("out_trade_no", out_trade_no);
-		// ÕâÀïĞ´µÄ½ğ¶îÎª1 ·Öµ½Ê±ĞŞ¸Ä
+		// è¿™é‡Œå†™çš„é‡‘é¢ä¸º1 åˆ†åˆ°æ—¶ä¿®æ”¹
 		packageParams.put("total_fee", totalFee);
 		packageParams.put("spbill_create_ip", spbill_create_ip);
 		packageParams.put("notify_url", notify_url);
@@ -102,7 +102,7 @@ public class WxFinaPackage {
 		String prepay_id = "";
 		String createOrderURL = "https://api.mch.weixin.qq.com/pay/unifiedorder";
 		prepay_id = new GetWxOrderno().getPayNo(createOrderURL, xml);
-		// »ñÈ¡prepay_idºó£¬Æ´½Ó×îºóÇëÇóÖ§¸¶ËùĞèÒªµÄpackage
+		// è·å–prepay_idåï¼Œæ‹¼æ¥æœ€åè¯·æ±‚æ”¯ä»˜æ‰€éœ€è¦çš„package
 		SortedMap<String, String> finalpackage = new TreeMap<String, String>();
 		String timestamp = Sha1Util.getTimeStamp();
 		String packages = "prepay_id=" + prepay_id;
@@ -111,7 +111,7 @@ public class WxFinaPackage {
 		finalpackage.put("nonceStr", nonce_str);
 		finalpackage.put("package", packages);
 		finalpackage.put("signType", "MD5");
-		// ÒªÇ©Ãû
+		// è¦ç­¾å
 		String finalsign = reqHandler.createSign(finalpackage);			
 		finalpackage.put("paySign", finalsign);
 		
@@ -124,34 +124,34 @@ public class WxFinaPackage {
 		return finaPackage;
 	}
 	/**
-	 * »ñÈ¡Ëæ»ú×Ö·û´®
+	 * è·å–éšæœºå­—ç¬¦ä¸²
 	 * 
 	 * @return
 	 */
 	public static String getNonceStr() {
-		// Ëæ»úÊı
+		// éšæœºæ•°
 		String currTime = TenpayUtil.getCurrTime();
-		// 8Î»ÈÕÆÚ
-		String strTime = currTime.substring(8, currTime.length());
-		// ËÄÎ»Ëæ»úÊı
+		// 8ä½æ—¥æœŸ
+		String strTime = currTime.substring(8);
+		// å››ä½éšæœºæ•°
 		String strRandom = TenpayUtil.buildRandom(4) + "";
-		// 10Î»ĞòÁĞºÅ,¿ÉÒÔ×ÔĞĞµ÷Õû¡£
+		// 10ä½åºåˆ—å·,å¯ä»¥è‡ªè¡Œè°ƒæ•´ã€‚
 		return strTime + strRandom;
 	}
 
 	/**
-	 * Ôª×ª»»³É·Ö
+	 * å…ƒè½¬æ¢æˆåˆ†
 	 * 
-	 * @param money
+	 * @param
 	 * @return
 	 */
 	public static String getMoney(String amount) {
 		if (amount == null) {
 			return "";
 		}
-		// ½ğ¶î×ª»¯Îª·ÖÎªµ¥Î»
-		String currency = amount.replaceAll("\\$|\\£¤|\\,", ""); // ´¦Àí°üº¬, £¤
-																// »òÕß$µÄ½ğ¶î
+		// é‡‘é¢è½¬åŒ–ä¸ºåˆ†ä¸ºå•ä½
+		String currency = amount.replaceAll("\\$|\\ï¿¥|\\,", ""); // å¤„ç†åŒ…å«, ï¿¥
+																// æˆ–è€…$çš„é‡‘é¢
 		int index = currency.indexOf(".");
 		int length = currency.length();
 		Long amLong = 0l;

@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="weixinsdpt_rt_20181207">
+    <output-path>$PROJECT_DIR$/out/artifacts/weixinsdpt_rt_20181207</output-path>
+    <root id="archive" name="weixinsdpt_rt_20181207.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="weixinsdpt" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="weixinsdpt/web/Web" />
+    </root>
+  </artifact>
+</component>

@@ -34,7 +34,6 @@
     <file url="file://$PROJECT_DIR$/src/org/course/service/ManageService.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/org/course/servlet/CoreServlet.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/org/course/util/CommonUtil.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/org/course/util/MD5Util.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/org/course/util/MenuUtil.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/org/course/util/MessageUtil.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/org/course/util/MyX509TrustManager.java" charset="UTF-8" />
@@ -45,6 +44,7 @@
     <file url="file://$PROJECT_DIR$/src/org/sqlserver/util/Test.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/org/weixin/main/MenuManager.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/org/weixin/pay/Notify.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/org/weixin/pay/WxFinaPackage.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/org/weixin/pay/WxPayDto.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/org/weixin/pay/WxPayResult.java" charset="UTF-8" />
   </component>
