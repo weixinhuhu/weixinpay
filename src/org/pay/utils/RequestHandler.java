@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 /*
  '微信支付服务器签名支付请求请求类
  '============================================================================
- 'api说明�?
+ 'api说明
  'init(app_id, app_secret, partner_key, app_key);
- '初始化函数，默认给一些参数赋值，如cmdno,date等�?
+ '初始化函数，默认给一些参数赋值，如cmdno,date等?
  'setKey(key_)'设置商户密钥
  'getLasterrCode(),获取�?��错误�?
  'GetToken();获取Token
@@ -72,7 +72,7 @@ public class RequestHandler {
 	}
 
 	/**
-	 * 初始化函数�?
+	 * 初始化函数
 	 */
 	public void init(String app_id, String app_secret,	String partner_key) {
 		this.last_errcode = "0";
@@ -84,11 +84,8 @@ public class RequestHandler {
 		this.key = partner_key;
 	}
 
-	public void init() {
-	}
-
 	/**
-	 * 获取�?��错误�?
+	 * 获取错误?
 	 */
 	public String getLasterrCode() {
 		return last_errcode;
@@ -102,7 +99,7 @@ public class RequestHandler {
 	}
 
 	/**
-	 * 获取参数�?
+	 * 获取参数
 	 * 
 	 * @param parameter
 	 *            参数名称
@@ -115,7 +112,6 @@ public class RequestHandler {
 
 	
 	 //设置密钥
-	
 	public void setKey(String key) {
 		this.partnerkey = key;
 	}
@@ -154,7 +150,7 @@ public class RequestHandler {
 	 * 创建md5摘要,规则�?按参数名称a-z排序,遇到空�?的参数不参加签名�?
 	 */
 	public String createSign(SortedMap<String, String> packageParams) {
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		Set es = packageParams.entrySet();
 		Iterator it = es.iterator();
 		while (it.hasNext()) {

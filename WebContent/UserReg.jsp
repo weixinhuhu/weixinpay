@@ -1,6 +1,5 @@
-<%@ page language="java" import="java.io.*,java.util.*"
-	pageEncoding="UTF-8"%>
-<%@ page import="org.course.service.*"%>
+<%@ page language="java" contentType="text/html; charset=GBK"
+		 pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"

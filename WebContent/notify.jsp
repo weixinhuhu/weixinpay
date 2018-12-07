@@ -1,5 +1,5 @@
-<%@ page language="java" import="java.io.*,java.util.*"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=GBK"
+		 pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -7,6 +7,7 @@
 			+ path + "/";
 %>
 <%@ page import="org.course.service.*"%>
+<%@ page import="java.sql.SQLException" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -73,29 +74,6 @@
 	word-wrap: break-word;
 }
 
-.weui-form-preview__btn_primary {
-	color: #09BB07;
-}
-
-.weui-form-preview__btn {
-	position: relative;
-	display: block;
-	-webkit-box-flex: 1;
-	-webkit-flex: 1;
-	flex: 1;
-	color: #09BB07;
-	text-align: center;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-.weui-form-preview__ft {
-	position: relative;
-	line-height: 50px;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: flex;
-}
-}
 </style>
 
 <script language="javascript">
@@ -120,8 +98,12 @@
 	%>
 	<%
 		ManageService ManageService = new ManageService();
-		ManageService.WechatDeposit(openid, Double.parseDouble(totlemoney),
-				orderId);
+		try {
+			ManageService.WechatDeposit(openid, Double.parseDouble(totlemoney),
+					orderId);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	%>
 	
 	<div class="page__hd">

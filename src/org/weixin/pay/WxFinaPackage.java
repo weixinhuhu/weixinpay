@@ -25,7 +25,7 @@ public class WxFinaPackage {
 	private static String notifyurl = "http://weixinsdpt.applinzi.com/"; // Key
 
 	/**
-	 * @param args
+	 * @param args args
 	 */
 	public static void main(String[] args) {
 		//测试
@@ -46,7 +46,7 @@ public class WxFinaPackage {
 	/**
 	 * 获取请求预支付id报文
 	 * 
-	 * @return
+	 * @return xml
 	 */
 	@SuppressWarnings("static-access")
 	public static String getPackage(WxPayDto tpWxPayDto) {
@@ -99,7 +99,7 @@ public class WxFinaPackage {
 				+ "</notify_url>" + "<trade_type>" + trade_type
 				+ "</trade_type>" + "<openid>" + openId + "</openid>"
 				+ "</xml>";
-		String prepay_id = "";
+		String prepay_id;
 		String createOrderURL = "https://api.mch.weixin.qq.com/pay/unifiedorder";
 		prepay_id = new GetWxOrderno().getPayNo(createOrderURL, xml);
 		// 获取prepay_id后，拼接最后请求支付所需要的package
@@ -112,7 +112,7 @@ public class WxFinaPackage {
 		finalpackage.put("package", packages);
 		finalpackage.put("signType", "MD5");
 		// 要签名
-		String finalsign = reqHandler.createSign(finalpackage);			
+		String finalsign = reqHandler.createSign(finalpackage);
 		finalpackage.put("paySign", finalsign);
 		
 //		String finaPackage = "\"appId\":\"" + appid + "\",\"timeStamp\":\""
@@ -126,7 +126,7 @@ public class WxFinaPackage {
 	/**
 	 * 获取随机字符串
 	 * 
-	 * @return
+	 * @return 随机数
 	 */
 	public static String getNonceStr() {
 		// 随机数
@@ -141,11 +141,12 @@ public class WxFinaPackage {
 
 	/**
 	 * 元转换成分
-	 * 
-	 * @param
-	 * @return
+	 *
+	 * @param  amount money 元
+	 *
+	 * @return money 分
 	 */
-	public static String getMoney(String amount) {
+	private static String getMoney(String amount) {
 		if (amount == null) {
 			return "";
 		}
@@ -154,7 +155,7 @@ public class WxFinaPackage {
 																// 或者$的金额
 		int index = currency.indexOf(".");
 		int length = currency.length();
-		Long amLong = 0l;
+		Long amLong ;
 		if (index == -1) {
 			amLong = Long.valueOf(currency + "00");
 		} else if (length - index >= 3) {

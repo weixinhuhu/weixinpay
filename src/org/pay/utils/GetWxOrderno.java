@@ -35,23 +35,25 @@ public class GetWxOrderno
 
   /**
    *description:获取预支付id
-   *@param url
-   *@param xmlParam
-   *@return
-   * @author ex_yangxiaoyi
-   * @see
+   *@param url 支付链接
+   *@param xmlParam 支付信息
+   *@return 订单号
    */
   public static String getPayNo(String url,String xmlParam){
 	  DefaultHttpClient client = new DefaultHttpClient();
+
 	  client.getParams().setParameter(ClientPNames.ALLOW_CIRCULAR_REDIRECTS, true);
+
 	  HttpPost httpost= HttpClientConnectionManager.getPostMethod(url);
+
 	  String prepay_id = "";
+
      try {
 		 httpost.setEntity(new StringEntity(xmlParam, "UTF-8"));
 		 HttpResponse response = httpclient.execute(httpost);
 	     String jsonStr = EntityUtils.toString(response.getEntity(), "UTF-8");
 	    if(jsonStr.indexOf("FAIL")!=-1){   	
-	    	System.out.println("FAIL"+jsonStr.toString());
+	    	System.out.println("FAIL"+ jsonStr);
 	    	return prepay_id;
 	    }
 	    Map map = doXMLParse(jsonStr);
@@ -68,8 +70,6 @@ public class GetWxOrderno
    *@param url
    *@param xmlParam
    *@return
-   * @author ex_yangxiaoyi
-   * @see
    */
   public static String getCodeUrl(String url,String xmlParam){
 	  DefaultHttpClient client = new DefaultHttpClient();
@@ -95,8 +95,8 @@ public class GetWxOrderno
   
   /**
 	 * 解析xml,返回第一级元素键值对。如果第�?��元素有子节点，则此节点的值是子节点的xml数据?
-	 * @param strxml
-	 * @return
+	 * @param strxml xml
+	 * @return map
 	 * @throws JDOMException
 	 * @throws IOException
 	 */
